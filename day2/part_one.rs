@@ -31,42 +31,42 @@ mod tests {
 
     // Safe because the levels are all decreasing by 1 or 2.
     #[test]
-    fn test_is_safe_report_sorted_ascending() {
+    fn test_one() {
         let report = vec![7, 6, 4, 2, 1];
         assert!(is_safe_report(&report));
     }
 
     // Unsafe because 2 7 is an increase of 5.
     #[test]
-    fn test_is_safe_report_sorted_descending() {
+    fn test_two() {
         let report = vec![1, 2, 7, 8, 9];
         assert!(!is_safe_report(&report));
     }
 
     // Unsafe because 6 2 is a decrease of 4.
     #[test]
-    fn test_is_safe_report_unsorted() {
+    fn test_three() {
         let report = vec![9, 7, 6, 2, 1];
         assert!(!is_safe_report(&report));
     }
 
     // Unsafe because 1 3 is increasing but 3 2 is decreasing.
     #[test]
-    fn test_is_safe_report_empty() {
+    fn test_four() {
         let report: Vec<i32> = vec![1, 3, 2, 4, 5];
         assert!(!is_safe_report(&report));
     }
 
     // Unsafe because 4 4 is neither an increase or a decrease.
     #[test]
-    fn test_is_safe_report_single_element() {
+    fn test_five() {
         let report = vec![8, 6, 4, 4, 1];
         assert!(!is_safe_report(&report));
     }
 
     // Safe because the levels are all increasing by 1, 2, or 3.
     #[test]
-    fn test_is_safe_report_single_element2() {
+    fn test_six() {
         let report = vec![1, 3, 6, 7, 9];
         assert!(is_safe_report(&report));
     }
